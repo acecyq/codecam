@@ -1,16 +1,65 @@
-<h1>heeey</h1>
-
-<%= link_to 'log out', destroy_user_session_url, method: :delete %>
-
-<br>
-<br>
-<br>
-
-<% @users.each do |user| %>
-    <div>
-        <%= user.email %>
-        
-        <%= link_to 'Show', coder_path(user) %> 
+<section class="hero is-info is-large">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="code_icon.jpg" alt="Logo">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active" href='destroy_user_session_url' method: :delete >
+              Log Out
+              <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <h1 class="is-size-2 has-text-centered">Available coders</h1>
+  <div class="hero-body">
+    <div class="container has-text-centered">  
+        <% @users.each do |user| %>
+            <div>
+                <a class="button is-link is-inverted"><%= user.email %></a>
+                <br>
+                <%# get this button link to work, the path is the link to show right below this comment %>
+                <%= user.email %>
+                <%= link_to 'Show', coder_path(user) %> 
+            </div>
+        <% end %>
+      <br>
+      <p class="subtitle">
+        <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+      </p>
     </div>
-<% end %>
+  </div>
+  <div class="hero-foot">
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

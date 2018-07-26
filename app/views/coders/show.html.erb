@@ -1,7 +1,58 @@
-<h1>Coder Info</h1>
+<section class="hero is-info is-large">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="code_icon.jpg" alt="Logo">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active" href='destroy_user_session_url' method: :delete >
+              Log Out
+              <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <h1 class="is-size-2 has-text-centered"><%= @users.email %></h1>
+  <div class="hero-body">
+    <div class="container has-text-centered">  
+        <%= link_to 'Start Chat', room_path %>
+      <br>
+      <br>
+      <p class="subtitle">
+        <%= link_to 'log out', destroy_user_session_url, method: :delete %>
+      </p>
+    </div>
+  </div>
+  <div class="hero-foot">
+  </div>
+</section>
 
-<p>
-<%= @users.email %>
-</p>
 
-<%= link_to 'Start Chat', room_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
