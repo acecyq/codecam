@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="code_icon.jpg" alt="Logo">
+            <img src="/assets/code_icon.png" alt="Logo">
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroB">
             <span></span>
@@ -14,10 +14,15 @@
         </div>
         <div id="navbarMenuHeroB" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item is-active" href='destroy_user_session_url' method: :delete >
-              Log Out
-              <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
-            </a>
+            <%if user_signed_in?%>
+              <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
+                <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+              </a>
+            <%else%>
+              <%= link_to 'log in', new_user_session_url, :class => "navbar-item is-active" %>
+                <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+              </a>
+            <%end%>
           </div>
         </div>
       </div>
@@ -28,17 +33,11 @@
     <div class="container has-text-centered">  
         <% @users.each do |user| %>
             <div>
-                <a class="button is-link is-inverted"><%= user.email %></a>
                 <br>
-                <%# get this button link to work, the path is the link to show right below this comment %>
-                <%= user.email %>
-                <%= link_to 'Show', coder_path(user) %> 
+                <%= button_to user.email, room_new_path, :class => 'button is-link is-inverted'%>
             </div>
         <% end %>
       <br>
-      <p class="subtitle">
-        <%= link_to 'log out', destroy_user_session_url, method: :delete %>
-      </p>
     </div>
   </div>
   <div class="hero-foot">
