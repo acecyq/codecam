@@ -35,7 +35,8 @@
         <% @users.each do |user| %>
             <div>
                 <br>
-                <%= button_to user.email, room_new_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
+                <p><%= user.id %></p>
+                <%=button_to user.email, new_room_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
             </div>
         <% end %>
       <br>

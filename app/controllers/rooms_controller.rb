@@ -2,13 +2,17 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if return_room(params[:id])
+    room = return_room(params[:id])
 
-      redirect_to room_specific_path(Room.find)
+    if room 
+      redirect_to room_specific_path(room)
     else
       @room = Room.new
-      @room.save
 
+      @room.user1 = User.find(params[:id])
+      @room.user2 = current_user
+
+      @room.save
       redirect_to room_specific_path(@room)
     end
   end
@@ -32,8 +36,22 @@ class RoomsController < ApplicationController
 
   private
   def return_room(user_id)
-    puts user_id
     user = User.find(user_id)
-    byebug
+    rooms = Room.where(user1: user)
+
+    Room.where(user2: user).each do |r|
+      rooms << r
+    end
+
+    check = false
+
+    rooms.each do |r|
+      if r.user1 == current_user || r.user2 == current_user
+        # redirect_to room_specific_path(r)
+        check = r
+      end
+    end
+
+    return check
   end
 end
