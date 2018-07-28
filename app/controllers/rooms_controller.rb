@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
   def show
     @user = current_user
     @room = Room.find(params[:id])
-    # @messages = Message.where()
+    @messages = Message.where(room: @room)
   end
 
   private

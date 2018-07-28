@@ -18,12 +18,6 @@ App.room = App.cable.subscriptions.create { channel: "RoomsChannel", room_id: ro
     # @perform 'speak', message: obj.message + '/' + obj.sender_id + '/' + obj.room_id
     @perform 'speak', message: obj.message, sender_id: obj.sender_id, room_id: obj.room_id
 
-    # console.log 'XXXXXXXXXXHELLOOOOOOXXXX'
-    # console.log @user
-    # console.log @room
-    # console.log @message
-
-
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send
     # event.preventDefault()
