@@ -1,6 +1,9 @@
 class RoomsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room_channel"
+    # room = Room.find(params[:id])
+    # stream_for "room
+    stream_from "room_#{params[:room_id]}"
+    puts 'channel subscribed'
   end
 
   def unsubscribed
@@ -8,7 +11,7 @@ class RoomsChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # Message.create(content: data['message'])
+  # Message.create(content: data['message'])
     Message.create! content: data['message'] user: data['sender_id'] room: data['room_id']
   end
 end

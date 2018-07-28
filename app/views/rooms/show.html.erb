@@ -2,12 +2,14 @@
 
 
 <p><%= @room.id %></p>
-
+<div hidden id='cool'><%=@user.id%></div>
 <div id="messages">
-  <%= render @messages %>
+  <%# <%= render @messages %>
 </div> 
 
 <form>
   <label>Say Something:</label><br>
   <input type="text" data-behavior="room_speaker">
 </form>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
