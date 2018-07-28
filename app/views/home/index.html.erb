@@ -35,9 +35,10 @@
         <% @users.each do |user| %>
             <div>
                 <br>
-                <%= button_to user.email, room_new_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
+                <%=button_to user.email, new_room_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
             </div>
         <% end %>
+        <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
       <br>
     </div>
   </div>
