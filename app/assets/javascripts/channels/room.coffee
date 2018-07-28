@@ -11,7 +11,7 @@ App.room = App.cable.subscriptions.create { channel: "RoomsChannel", room_id: ro
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    # alert data['message']
+    # `alert(data['messager'])`
     $('#messages').append data['message']
 
   speak: (obj) ->
