@@ -11,7 +11,7 @@ App.room = App.cable.subscriptions.create "RoomsChannel",
     $('#messages').append data['message']
 
   speak: (message) ->
-    @perform 'speak', message: message
+    @perform 'speak', message: message, sender_id: @user , room_id: @room
 
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->

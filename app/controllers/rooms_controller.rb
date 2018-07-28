@@ -18,23 +18,13 @@ class RoomsController < ApplicationController
   end
 
   def show
-    if Room.find(params[:id])
-      @room = Room.find(params[:id])
-    else
-      redirect_to rooms_path()
-
-    end
-
+    @user = current_user
+    @room = Room.find(params[:id])
     # @messages = Message.where()
   end
 
-  def distribute(user1, user2)
-    puts 'distribute'
-    puts user1
-    puts user2
-  end
-
   private
+  
   def return_room(user_id)
     user = User.find(user_id)
     rooms = Room.where(user1: user)
