@@ -8,9 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" type="text/css" href="main.scss">
+
+ </head>
 
   <body>
+    <section class="hero is-info is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <img src="/assets/code_icon.png" alt="Logo">
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroB" class="navbar-menu">
+            <div class="navbar-end">
+              <%if user_signed_in?%>
+                <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
+                  <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+              <%else%>
+                <%= link_to 'log in', new_user_session_url, :class => "navbar-item is-active" %>
+                  <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    
     <%= yield %>
+  </section>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

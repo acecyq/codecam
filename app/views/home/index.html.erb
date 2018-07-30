@@ -1,35 +1,4 @@
-<section class="hero is-info is-large">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="/assets/code_icon.png" alt="Logo">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenuHeroB" class="navbar-menu">
-          <div class="navbar-end">
-            <%if user_signed_in?%>
-              <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
-                <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
-              </a>
-            <%else%>
-              <%= link_to 'log in', new_user_session_url, :class => "navbar-item is-active" %>
-                <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
-              </a>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-
-  <h1 class="is-size-2 has-text-centered">Available coders</h1>
+<h1 class="is-size-2 has-text-centered">Available coders</h1>
   <div class="hero-body">
     <div class="container has-text-centered">  
         <% @users.each do |user| %>
@@ -38,13 +7,10 @@
                 <%=button_to user.email, new_room_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
             </div>
         <% end %>
-        <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
       <br>
     </div>
   </div>
-  <div class="hero-foot">
-  </div>
-</section>
+
 
 
 
