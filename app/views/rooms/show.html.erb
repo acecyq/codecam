@@ -1,26 +1,21 @@
 
 
-<section class="hero is-info is-large">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title"> Welcome to Chatroom: <p><%= @room.id %></p></h1>
-      <div hidden id='cool'><%=@user.id%></div>
-      <div id="messages">
-      <%= render @messages %>
-    </div> 
 
-  <div class="field">
-   <div class="control">
-    <input class="input is-primary is-rounded" type="text" placeholder="Primary input">
-      <form>
-      <label>Say Something:</label><br>
-      <input type="text" data-behavior="room_speaker">
-     </form>
-   </div>
-  </div>
-
+<section class="hero is-info is-fullheight has-text-black">
+  <div class="container">
+    <h1 class="title has-text-white has-text-centered"> Let's chat!</h1>
+    <div hidden id='cool'><%=@user.id%></div>
+      <div class="box">
+        <div id="messages">
+          <%= render @messages %>
+        </div> 
+      </div>
+    <div class="field">
+      <div class="control">
+        <input class="input is-primary" type="text" placeholder="say something:" data-behavior="room_speaker">
+      </div>
+    </div>
     <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
     </div>
-  </div>
 </section>
 
