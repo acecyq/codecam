@@ -1,10 +1,11 @@
 class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(message)
+  def perform(message) #message content plus stuff from message table
     @room = "room_#{message.room.id}"
     ActionCable.server.broadcast @room, {message: render_message(message)}
-    # ActionCable.server.broadcast "room_#{message.room.id}", {message: render_message(message)}
+    puts 'XXXXXXXXXXXXXXXXX'
+    puts message.user.email
   end
     
   private

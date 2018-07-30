@@ -1,6 +1,7 @@
 <section class="hero is-info is-fullheight has-text-white has-text-centered centerall">
+<div class="hero-body">
   <div class="columns">
-    <div class="column is-6 is-offset-3">
+    <div class="column is-6 fullwidth">
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -39,4 +40,5 @@
 
     <%= render "devise/shared/links" %>
   </div>
-</section>
+</div>
+<%# </section> %>

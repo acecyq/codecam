@@ -1,12 +1,20 @@
 .centerall {
     justify-content: center;
-    // height: 100vh;
-    // padding: 0;
-    // display: flex;
-    // flex-wrap: nowrap;
-    // align-items: center;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     }
 
+.fullwidth {
+    width: 100% !important;
+}
+
+#chatbox {
+    overflow-y: auto;
+    height: 70vh;
+}
 // .loginbutton {
 //     margin: 0 auto;
 // }

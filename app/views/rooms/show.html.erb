@@ -1,21 +1,16 @@
-
-
-
-<section class="hero is-info is-fullheight has-text-black">
+<section class="hero-body has-text-black">
   <div class="container">
-    <h1 class="title has-text-white has-text-centered"> Let's chat!</h1>
     <div hidden id='cool'><%=@user.id%></div>
-      <div class="box">
+      <div class="box" id="chatbox">
         <div id="messages">
           <%= render @messages %>
         </div> 
       </div>
     <div class="field">
       <div class="control">
-        <input class="input is-primary" type="text" placeholder="say something:" data-behavior="room_speaker">
+        <input id='chatText' onchange="refreshChat" class="input is-primary" type="text" placeholder="say something:" data-behavior="room_speaker">
       </div>
     </div>
     <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
     </div>
 </section>
-
