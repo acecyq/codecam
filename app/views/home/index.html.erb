@@ -17,11 +17,9 @@
             <%if user_signed_in?%>
               <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
                 <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
-              </a>
             <%else%>
               <%= link_to 'log in', new_user_session_url, :class => "navbar-item is-active" %>
                 <%# Get this logout button to work, use the path of the logout link all the way at the bottom %>
-              </a>
             <%end%>
           </div>
         </div>
@@ -38,13 +36,16 @@
                 <%=button_to user.email, new_room_path(user.id), method: :post, :class => 'button is-link is-inverted'%>
             </div>
         <% end %>
-        <%= link_to 'log out', destroy_user_session_url, method: :delete, :class => "navbar-item is-active" %>
       <br>
     </div>
   </div>
   <div class="hero-foot">
   </div>
+
+
 </section>
+
+
 
 
 

@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :rooms
 
   mount ActionCable.server => '/cable'
-  get '/users/sign_out', to: redirect('/')
+  #get '/users/sign_out', to: 'home#index', 
   
 end

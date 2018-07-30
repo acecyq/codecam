@@ -1,15 +1,26 @@
-<h1>Chat room</h1>
 
 
-<p><%= @room.id %></p>
-<div hidden id='cool'><%=@user.id%></div>
-<div id="messages">
-<%= render @messages %>
-</div> 
+<section class="hero is-info is-large">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"> Welcome to Chatroom: <p><%= @room.id %></p></h1>
+      <div hidden id='cool'><%=@user.id%></div>
+      <div id="messages">
+      <%= render @messages %>
+    </div> 
 
-<form>
-  <label>Say Something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
+  <div class="field">
+   <div class="control">
+    <input class="input is-primary is-rounded" type="text" placeholder="Primary input">
+      <form>
+      <label>Say Something:</label><br>
+      <input type="text" data-behavior="room_speaker">
+     </form>
+   </div>
+  </div>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
+    </div>
+  </div>
+</section>
+
