@@ -4,8 +4,6 @@ class MessageBroadcastJob < ApplicationJob
   def perform(message) #message content plus stuff from message table
     @room = "room_#{message.room.id}"
     ActionCable.server.broadcast @room, {message: render_message(message)}
-    puts 'XXXXXXXXXXXXXXXXX'
-    puts message.user.email
   end
     
   private
