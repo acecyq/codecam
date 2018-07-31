@@ -11,6 +11,22 @@
         <input id='chatText' onchange="refreshChat" class="input is-primary" type="text" placeholder="say something:" data-behavior="room_speaker">
       </div>
     </div>
+    <button id='vidchatButton' class='button'>Go to VideoChat!</button>
+
+    <script>
+      var room_id;
+      function getAllUrlParams(url) {
+        // get query string from url (optional) or window
+        let arr = url.split('/');
+        room_id = arr[arr.length - 1];
+      }
+      getAllUrlParams(window.location.href);
+
+      document.getElementById('vidchatButton').addEventListener('click', function() {
+        let url = 'http://codecam.herokuapp.com/' + room_id;
+        window.open(url);
+      });
+    </script>
     <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
     </div>
 </section>
